@@ -21,6 +21,7 @@ func main() {
 	{
 		apiRouter.POST("/create", handler.Create)
 		apiRouter.POST("/update", handler.Update)
+		apiRouter.GET("/delete", handler.Delete)
 	}
 
 	r.Run(":8080")
