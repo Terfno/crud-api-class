@@ -30,7 +30,7 @@ func Update(c *gin.Context) {
 		log.Fatal("fail convert id: ", err)
 	}
 
-	err := domain.UpdateElement(id, url)
+	err = domain.UpdateElement(id, url)
 	if err != nil {
 		log.Fatal("fail update: ", err)
 	}
