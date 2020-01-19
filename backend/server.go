@@ -1,11 +1,12 @@
 package main
 
 import (
-	"net/http"
 	"path/filepath"
 
 	"github.com/gin-contrib/multitemplate"
 	"github.com/gin-gonic/gin"
+
+	"crud-api-class/handler"
 )
 
 func main() {
@@ -13,9 +14,7 @@ func main() {
 
 	r.HTMLRender = loadTemplates("./templates")
 
-	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", gin.H{})
-	})
+	r.GET("/", handler.List)
 	r.Run(":8080")
 }
 

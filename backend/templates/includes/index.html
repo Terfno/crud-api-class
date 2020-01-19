@@ -1,5 +1,9 @@
 {{ define "content" }}
 <div>
-  <h1>this is going to be some content</h1>
+  {{ range .urls }}
+  <div>
+    <p>{{ .Link }}</p>
+  </div>
+  {{ end }}
 </div>
 {{ end }}
