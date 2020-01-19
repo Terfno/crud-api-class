@@ -1,1 +1,1 @@
-INSERT INTO lists (Link) VALUES ('google.com');
+INSERT INTO urls (Link) VALUES ('google.com');

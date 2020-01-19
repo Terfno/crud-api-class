@@ -1,1 +1,1 @@
-DROP TABLE lists;
+DROP TABLE urls;
