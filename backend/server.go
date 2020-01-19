@@ -15,6 +15,7 @@ func main() {
 	r.HTMLRender = loadTemplates("./templates")
 
 	r.GET("/", handler.List)
+	r.GET("/edit", handler.Edit)
 
 	apiRouter := r.Group("/api")
 	{

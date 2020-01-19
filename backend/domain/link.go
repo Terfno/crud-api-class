@@ -23,6 +23,17 @@ func GetAll() ([]*Url, error) {
 	return l, err
 }
 
+func GetElementByID(id uint64) (Url, error) {
+	foundURL := Url{}
+
+	db := infra.Connect()
+	defer db.Close()
+
+	err := db.Where("id = ?", id).First(&foundURL).Error
+
+	return foundURL, err
+}
+
 func CreateNewElement(url string) error {
 	newURL := Url{}
 	newURL.Link = url
