@@ -1,0 +1,14 @@
+{{ define "content"}}
+<div>
+  <form action="/api/update?id={{ .ID }}" method="POST">
+    <div>
+      <input name="url" type="text" id="def">
+      <label for="def">now: {{ .Link }}</label>
+    </div>
+    <div>
+      <button type="submit">更新</button>
+    </div>
+  </form>
+  <button onclick="location.href='/'">キャンセル</button>
+</div>
+{{ end }}
