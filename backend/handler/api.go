@@ -25,7 +25,9 @@ func Create(c *gin.Context) {
 func Update(c *gin.Context) {
 	c.Request.ParseForm()
 	url := c.Request.Form["url"][0]
-	id, err := strconv.ParseUint(c.Request.Form["id"][0], 10, 64)
+
+	ids := c.Query("id")
+	id, err := strconv.ParseUint(ids, 10, 64)
 	if err != nil {
 		log.Fatal("fail convert id: ", err)
 	}

@@ -1,8 +1,7 @@
 {{ define "content"}}
 <div>
-  <form action="/api/update" method="POST">
+  <form action="/api/update?id={{ .ID }}" method="POST">
     <div>
-      <input type="text" value="{{ .ID }}" style="visibility: hidden;">
       <input name="url" type="text" id="def">
       <label for="def">now: {{ .Link }}</label>
     </div>
