@@ -32,3 +32,12 @@ func CreateNewElement(url string) error {
 
 	return db.Create(&newURL).Error
 }
+
+func UpdateElement(id uint64, url string) error {
+	db := infra.Connect()
+	defer db.Close()
+
+	newURL := Url{}
+
+	return db.Where("id = ?", id).First(&newURL).Update("link", url).Error
+}

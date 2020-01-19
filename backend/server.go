@@ -19,6 +19,7 @@ func main() {
 	apiRouter := r.Group("/api")
 	{
 		apiRouter.POST("/create", handler.Create)
+		apiRouter.POST("/update", handler.Update)
 	}
 
 	r.Run(":8080")
