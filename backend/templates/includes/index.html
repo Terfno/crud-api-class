@@ -1,9 +1,20 @@
 {{ define "content" }}
 <div>
-  {{ range .urls }}
-  <div>
-    <p>{{ .Link }}</p>
-  </div>
-  {{ end }}
+  <ul>
+    {{ range .urls }}
+    <li>{{ .Link }}</li>
+    {{ end }}
+  </ul>
+</div>
+<div>
+  <form action="/api/create" method="POST">
+    <div>
+      <input name="url" type="text" id="def">
+      <label for="def">e.g. google.com</label>
+    </div>
+    <div>
+      <button type="submit">追加</button>
+    </div>
+  </form>
 </div>
 {{ end }}
