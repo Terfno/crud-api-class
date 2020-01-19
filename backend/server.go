@@ -15,6 +15,12 @@ func main() {
 	r.HTMLRender = loadTemplates("./templates")
 
 	r.GET("/", handler.List)
+
+	apiRouter := r.Group("/api")
+	{
+		apiRouter.POST("/create", handler.Create)
+	}
+
 	r.Run(":8080")
 }
 
