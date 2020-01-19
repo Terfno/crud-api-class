@@ -22,3 +22,13 @@ func GetAll() ([]*Url, error) {
 
 	return l, err
 }
+
+func CreateNewElement(url string) error {
+	newURL := Url{}
+	newURL.Link = url
+
+	db := infra.Connect()
+	defer db.Close()
+
+	return db.Create(&newURL).Error
+}
