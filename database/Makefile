@@ -5,16 +5,16 @@ DATASOURCE:=mysql://root:password@tcp($(DB_HOST):$(DB_PORT))/
 MIGRATIONPATH:=migrations
 
 d/up:
-	docker-compose up -d
+	@docker-compose up -d
 
 d/down:
-	docker-compose down
+	@docker-compose down
 
 mysql:
-	mysql -u root -h $(DB_HOST) -P $(DB_PORT) --protocol tcp -p $(DB_NAME)
+	@mysql -u root -h $(DB_HOST) -P $(DB_PORT) --protocol tcp -p $(DB_NAME)
 
 migrate/init:
-	mysql -u root -h $(DB_HOST) -P $(DB_PORT) --protocol tcp -e "create database \`$(DB_NAME)\`" -p$(DB_PASSWORD)
+	@mysql -u root -h $(DB_HOST) -P $(DB_PORT) --protocol tcp -e "create database \`$(DB_NAME)\`" -p$(DB_PASSWORD)
 
 migrate/new:
 	@migrate create -dir migrations -ext sql -seq "$(NAME)"
@@ -32,4 +32,4 @@ migrate_down:
 	@migrate -path migrations -database "$(DATASOURCE)$(DB_NAME)" down 1
 
 migrate/drop:
-	mysql -u root -h $(DB_HOST) -P $(DB_PORT) --protocol tcp -e "drop database \`$(DB_NAME)\`" -p$(DB_PASSWORD)
+	@mysql -u root -h $(DB_HOST) -P $(DB_PORT) --protocol tcp -e "drop database \`$(DB_NAME)\`" -p$(DB_PASSWORD)
