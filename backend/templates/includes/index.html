@@ -2,7 +2,9 @@
 <div>
   <ul>
     {{ range .urls }}
-    <li><a href="{{ .Link }}">{{ .Link }}</a> <button onclick="location.href='/edit?id={{ .ID }}'">edit</button></li>
+    <li><a href="{{ .Link }}">{{ .Link }}</a>
+      <button onclick="location.href='/edit?id={{ .ID }}'">edit</button>
+      <button onclick="location.href='/api/delete?id={{ .ID }}'">delete</button></li>
     {{ end }}
   </ul>
 </div>

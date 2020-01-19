@@ -45,10 +45,19 @@ func CreateNewElement(url string) error {
 }
 
 func UpdateElement(id uint64, url string) error {
+	newURL := Url{}
+
 	db := infra.Connect()
 	defer db.Close()
 
-	newURL := Url{}
-
 	return db.Where("id = ?", id).First(&newURL).Update("link", url).Error
+}
+
+func DeleteElement(id uint64) error {
+	deleteURL := Url{}
+
+	db := infra.Connect()
+	defer db.Close()
+
+	return db.Where("id = ?", id).Delete(&deleteURL).Error
 }

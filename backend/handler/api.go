@@ -39,3 +39,18 @@ func Update(c *gin.Context) {
 
 	c.Redirect(http.StatusFound, "/")
 }
+
+func Delete(c *gin.Context) {
+	ids := c.Query("id")
+	id, err := strconv.ParseUint(ids, 10, 64)
+	if err != nil {
+		log.Fatal("fail convert id: ", err)
+	}
+
+	err = domain.DeleteElement(id)
+	if err != nil {
+		log.Fatal("fail delete: ", err)
+	}
+
+	c.Redirect(http.StatusFound, "/")
+}

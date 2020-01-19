@@ -22,13 +22,13 @@ func List(c *gin.Context) {
 }
 
 func Edit(c *gin.Context) {
-	id := c.Query("id")
-	idu, err := strconv.ParseUint(id, 10, 64)
+	ids := c.Query("id")
+	id, err := strconv.ParseUint(ids, 10, 64)
 	if err != nil {
 		log.Fatal("fail convert id: ", err)
 	}
 
-	url, err := domain.GetElementByID(idu)
+	url, err := domain.GetElementByID(id)
 	if err != nil {
 		log.Fatal("fail get by id: ", err)
 	}
